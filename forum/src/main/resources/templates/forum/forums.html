@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>FORUMS</h2>
+	<!-- On redirige via un chemin absolu afin de ne pas
+	avoir de problèmes si il y a un "/" à la fin de l'url du
+	par exemple à un redirect (car dans ce cas-là, il mettrait le 
+	chemin après le / -->
+	<a href="/forum/create">add</a>
+	<table>
+		<thead>
+			<tr>
+				<!-- <th>ID</th> -->
+				<th>TITLE</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${forums != null}" th:each="forum : ${forums}">
+				<!-- <td th:text="${forum.id}"></td> -->
+				<td><a th:text="${forum.title}" th:href="@{/forum/{id}/topics (id=${forum.id})}"></a></td>
+				<td><a th:href="@{/forum/details/{id} (id=${forum.id})}">Details</a></td>
+				<td><a th:href="@{/forum/delete/{id} (id=${forum.id})}">Delete</a></td>
+				<td><a th:href="@{/forum/update/{id} (id=${forum.id})}">Update</a></td>
+			</tr>
+			<p th:if="${forums != null && forums.empty}">LISTE VIDE</p>
+		</tbody>
+	</table>
+</body>
+</html>
+
+
+
+

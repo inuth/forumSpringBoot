@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2 th:text="${forum.title}"></h2>
+	<a th:href="@{/topic/create?f={id} (id=${forum.id})}">add</a>
+	<table>
+		<thead>
+			<tr>
+				<th>TITLE</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${forum.topics != null}" th:each="topic : ${forum.topics}">
+				<!-- <td th:text="${forum.id}"></td> -->
+				<td><p th:text="${topic.title}"></p></td>
+				<td><a th:href="@{/topic/update/{id} (id=${topic.id})}">Update</a></td>
+				<td><a th:href="@{/topic/delete/{id} (id=${topic.id})}">Delete</a></td>
+				<!-- <td><a th:href="@{/forum/details/{id} (id=${forum.id})}">Details</a></td>
+				
+				 -->
+			</tr>
+			<p th:if="${forum.topics != null && forum.topics.empty}">LISTE VIDE</p>
+		</tbody>
+	</table>
+</body>
+</html>

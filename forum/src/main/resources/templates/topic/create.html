@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	CREATE TOPIC
+	
+	<form th:action="@{/topic/create}" method="post" th:object="${topic}">	
+		<input type="text" th:field="*{title}"/>
+		<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+		<input type="text" th:field="*{description}"/>
+		<input type="hidden" name="idForum" th:value="${idForum}"/>
+		<input type="submit" value="CREATE"/>
+	</form>
+</body>
+</html>

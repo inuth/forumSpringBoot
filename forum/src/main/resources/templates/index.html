@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	GOOD !!!
+	<p th:text="${T(be.technobel.forum.utils.SessionManager).userConnected}"></p>
+	<!-- <p th:if="${pseudo != null}" th:text="${'Bonjour 1 ' + pseudo}"></p>
+	<p th:unless="${pseudo != null}">Bonjour Anonyme.</p>
+	<p th:text="'Bonjour 2 ' + ${pseudo}"></p> -->
+	<p th:if="${session.userConnected != null}" 
+	th:text="'Bonjour ' + ${session.userConnected.login} + ' ' + ${session.userConnected.getAge()}"></p>
+	
+	<!-- on récupère la valeur passée depuis le controller -->
+	<!-- <p th:text="${prenom}">machin ici</p>
+	<form method="post" action="/">
+		<input type="text" name="valeur">
+		<input type="submit" value="ENVOYER">
+	</form> -->
+</body>
+</html>
